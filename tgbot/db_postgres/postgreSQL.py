@@ -1,8 +1,9 @@
 from typing import Union
 import asyncpg
-# from aiogram.utils.markdown import hcode
 from asyncpg import Connection
 from asyncpg.pool import Pool
+
+from tgbot.config import load_config
 
 
 class Database():
@@ -11,11 +12,12 @@ class Database():
         self.pool: Union[Pool, None]
 
     async def create(self):
+        config = load_config(".env")
         self.pool = await asyncpg.create_pool(
-            host='localhost',
-            password='15376SHAPKA',
-            user='postgres',
-            database='postgres'
+            host=config.db.host,
+            password=config.db.password,
+            user=config.db.user,
+            database=config.db.database
         )
 
     async def execute(self, command, *args,

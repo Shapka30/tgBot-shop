@@ -3,7 +3,6 @@ from dataclasses import dataclass
 
 from aiogram import Dispatcher
 from environs import Env
-import pyqiwi
 from tgbot.db_postgres.postgreSQL import Database
 
 
