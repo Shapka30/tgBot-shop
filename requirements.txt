@@ -1,0 +1,6 @@
+aiogram~=2.18
+aioredis~=2.0
+environs~=9.0
+asyncpg~=0.25.0
+pyQiwiP2P~=2.0.0
+typing~=3.7.4.3
