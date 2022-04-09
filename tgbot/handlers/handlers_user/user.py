@@ -4,13 +4,12 @@ import asyncpg.exceptions
 from aiogram import Dispatcher
 from aiogram import types
 from aiogram.dispatcher import FSMContext
-from aiogram.dispatcher.filters import CommandStart, state
+from aiogram.dispatcher.filters import CommandStart
 from aiogram.utils.deep_linking import get_start_link
 
 from tgbot.config import db
 from tgbot.keyboards.inline import start_menu, start_menu2, back_start_menu, user_menu
 from tgbot.misc.help_function import create_invitation_code, chek
-from tgbot.misc.states import Invitation_code
 from tgbot.misc.throttling import rate_limit
 
 

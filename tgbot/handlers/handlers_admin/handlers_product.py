@@ -42,16 +42,20 @@ async def add_new_product4(message: types.Message, state: FSMContext):
                              'Символами является: буквы, цифры, всевозможные знаки припенания, смайлики и т.д', reply_markup=back_products_menu)
     else:
         await state.update_data(description=message.text)
-        await message.answer('Пришлите цену товара(целое число)', reply_markup=back_products_menu)
+        await message.answer('Пришлите цену товара(целое число) до 60000 р', reply_markup=back_products_menu)
         await NewProduct.price.set()
 
 
 async def add_new_product5(message: types.Message, state: FSMContext):
     try:
         price = int(message.text)
-        await state.update_data(price=price)
-        await message.answer('Пришлите количество товара(целое число)', reply_markup=back_products_menu)
-        await NewProduct.amount.set()
+        if price < 60_000:
+            await state.update_data(price=price)
+            await message.answer('Пришлите количество товара(целое число)', reply_markup=back_products_menu)
+            await NewProduct.amount.set()
+        else:
+            await message.answer('❌Слишком большая цена❌\n'
+                                 'Пришлите еще раз цену товара ДО 60000')
     except ValueError:
         await message.answer('❌Вы ввели неправильно значение❌\n'
                              'Пришлите еще раз цену товара(ЦЕЛОЕ ЧИСЛО)', reply_markup=back_products_menu)

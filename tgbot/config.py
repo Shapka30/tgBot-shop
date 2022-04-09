@@ -1,15 +1,7 @@
-import uuid
 from dataclasses import dataclass
 
-from aiogram import Dispatcher
 from environs import Env
 from tgbot.db_postgres.postgreSQL import Database
-
-
-# f12a702da4d19077d49e35d1bb109f86
-
-# c174cdff5d69d32b88cbc876252fbe85   2
-# wallet = pyqiwi.
 
 
 @dataclass
@@ -18,7 +10,6 @@ class Payment:
     wallet: str
     open_token: str
     close_token: str
-
 
 
 @dataclass
@@ -74,7 +65,5 @@ def load_config(path: str = None):
         )
     )
 
+
 db = Database()
-
-
-

@@ -11,10 +11,6 @@ class NewProduct(StatesGroup):
     confirm = State()
 
 
-class Invitation_code(StatesGroup):
-    state1 = State()
-
-
 class Mailing(StatesGroup):
     text = State()
     confirm = State()
@@ -35,7 +31,6 @@ class ChangeAmount(StatesGroup):
     article = State()
     amount = State()
     confirm = State()
-
 
 
 class Buy(StatesGroup):
