@@ -2,7 +2,6 @@ from aiogram import Dispatcher
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import CommandStart
-from aiogram.utils.markdown import hcode
 
 from tgbot.misc.variables import db
 from tgbot.keyboards.inline import admin_menu, admin_products_menu

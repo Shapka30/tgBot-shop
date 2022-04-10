@@ -176,7 +176,7 @@ async def comeback_start_menu(call: types.CallbackQuery, state: FSMContext):
 
 def register_user(dp: Dispatcher):
     dp.register_message_handler(user_start_deeplink, CommandStart(deep_link=re.compile(r"^[0-9]{4,10}$")))
-    dp.register_message_handler(user_start, CommandStart())
+    dp.register_message_handler(user_start, CommandStart(), state='*')
     dp.register_callback_query_handler(chek_invitation_code, text='code')
     dp.register_message_handler(chek_invitation_code2, state='start1')
     dp.register_callback_query_handler(check_subscription, text='check subscription')

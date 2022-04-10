@@ -23,7 +23,10 @@ async def empty_query(query: types.InlineQuery):
             reply_markup=InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(
                 text='Показать товар', url=f'https://t.me/Shapka30Tg_bot?start={product[0]}')]])
         ) for product in list_products]
-        await query.answer(show_products)
+        if show_products:
+            await query.answer(show_products)
+        else:
+            await query.answer(results=[], switch_pm_text='Товары отсутствуют', switch_pm_parameter='pls_add')
     else:
         await query.answer(
             results=[],
