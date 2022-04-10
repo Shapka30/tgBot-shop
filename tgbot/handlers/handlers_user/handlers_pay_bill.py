@@ -2,7 +2,7 @@ from aiogram import Dispatcher
 from aiogram.types import CallbackQuery
 from aiogram.utils.markdown import hcode
 
-from tgbot.config import db
+from tgbot.pop import db
 
 
 async def select_pay_bill(call: CallbackQuery):

@@ -7,7 +7,7 @@ from aiogram.dispatcher.filters import CommandStart
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyqiwip2p import QiwiP2P
 
-from tgbot.config import db
+from tgbot.pop import db
 from tgbot.keyboards.inline import buy_menu, user_menu, start_menu
 from tgbot.misc.states import Buy
 from tgbot.config import load_config

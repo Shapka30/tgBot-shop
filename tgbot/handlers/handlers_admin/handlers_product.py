@@ -2,9 +2,10 @@ from aiogram import Dispatcher
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 
-from tgbot.config import db
+
 from tgbot.keyboards.inline import admin_menu, chek_product_menu, back_products_menu, admin_products_menu
 from tgbot.misc.states import NewProduct
+from tgbot.pop import db
 
 
 async def add_new_product1(call: types.CallbackQuery):

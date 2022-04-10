@@ -1,8 +1,7 @@
 from aiogram import Dispatcher
 from aiogram import types
 from aiogram.utils.deep_linking import get_start_link
-
-from tgbot.config import db
+from tgbot.pop import db
 from tgbot.keyboards.inline import user_menu
 
 

@@ -13,7 +13,7 @@ class Database():
     async def create(self):
         self.pool = await asyncpg.create_pool(
             host='db',
-            password=1,
+            password='670524',
             user='postgres',
             database='postgres'
         )

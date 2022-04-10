@@ -5,9 +5,9 @@ from aiogram import Bot, Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.fsm_storage.redis import RedisStorage2
 
-from tgbot.config import load_config, db
+from tgbot.config import load_config
+from tgbot.db_postgres.postgreSQL import Database
 from tgbot.filters.admin import AdminFilter
-# from tgbot.handlers.echo import register_echo
 from tgbot.handlers.handlers_admin.handlers_product import register_add_product
 from tgbot.handlers.handlers_admin.admin import register_admin
 from tgbot.handlers.handlers_admin.mailing import register_mailing
@@ -18,7 +18,10 @@ from tgbot.handlers.handlers_user.handlers_catalog import register_inline_mode
 from tgbot.handlers.handlers_user.handlers_pay_bill import register_pay_bill
 from tgbot.handlers.handlers_user.handlers_referals import register_referals
 from tgbot.handlers.handlers_user.user import register_user
+
+
 from tgbot.middlewares.throttling import ThrottlingMiddleware
+from tgbot.pop import db
 
 logger = logging.getLogger(__name__)
 

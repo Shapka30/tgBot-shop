@@ -7,13 +7,13 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import CommandStart
 from aiogram.utils.deep_linking import get_start_link
 
-from tgbot.config import db
+from tgbot.pop import db
 from tgbot.keyboards.inline import start_menu, start_menu2, back_start_menu, user_menu
 from tgbot.misc.help_function import create_invitation_code, chek
 from tgbot.misc.throttling import rate_limit
 
 
-@rate_limit(5)
+@rate_limit(1)
 async def user_start_deeplink(message: types.Message):
     arg = int(message.get_args())
     if await db.check_tg_user_id(arg):
@@ -55,7 +55,7 @@ async def user_start_deeplink(message: types.Message):
     else:
         await message.answer('У вас не правильная реферальная ссылка')
 
-@rate_limit(5)
+@rate_limit(1)
 async def user_start(message: types.Message, state: FSMContext):
     if await state.get_state() is not None:
         await state.finish()
@@ -74,7 +74,6 @@ async def user_start(message: types.Message, state: FSMContext):
 
 async def chek_invitation_code(call: types.CallbackQuery, state: FSMContext):
     await call.message.edit_text(text='Пришлите код приглашения', reply_markup=back_start_menu)
-    # await Invitation_code.state1.set()
     await state.set_state('start1')
 
 
