@@ -1,7 +1,7 @@
 from aiogram import Dispatcher
 from aiogram import types
 from aiogram.types import InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton
-from tgbot.pop import db
+from tgbot.misc.variables import db
 
 
 async def empty_query(query: types.InlineQuery):

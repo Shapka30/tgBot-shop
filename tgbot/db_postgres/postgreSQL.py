@@ -3,7 +3,9 @@ import asyncpg
 from asyncpg import Connection
 from asyncpg.pool import Pool
 
+from tgbot.config import load_config
 
+config = load_config('.env')
 
 class Database():
 
@@ -12,10 +14,10 @@ class Database():
 
     async def create(self):
         self.pool = await asyncpg.create_pool(
-            host='db',
-            password='670524',
-            user='postgres',
-            database='postgres'
+            host=config.db.host,
+            password=config.db.password,
+            user=config.db.user,
+            database=config.db.database
         )
 
     async def execute(self, command, *args,

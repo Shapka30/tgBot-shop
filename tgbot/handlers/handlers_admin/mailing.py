@@ -3,7 +3,7 @@ from asyncio import sleep
 from aiogram import Dispatcher
 from aiogram import types
 from aiogram.dispatcher import FSMContext
-from tgbot.pop import db
+from tgbot.misc.variables import db
 from tgbot.keyboards.inline import admin_menu, back_admin_menu, chek_mailing_menu
 from tgbot.misc.states import Mailing
 

@@ -7,12 +7,11 @@ from aiogram.dispatcher.filters import CommandStart
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyqiwip2p import QiwiP2P
 
-from tgbot.pop import db
+from tgbot.misc.variables import config
+from tgbot.misc.variables import db
 from tgbot.keyboards.inline import buy_menu, user_menu, start_menu
 from tgbot.misc.states import Buy
-from tgbot.config import load_config
 
-config = load_config('.env')
 p2p = QiwiP2P(auth_key=config.qiwi.close_token)
 
 

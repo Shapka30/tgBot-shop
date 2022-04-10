@@ -21,7 +21,7 @@ from tgbot.handlers.handlers_user.user import register_user
 
 
 from tgbot.middlewares.throttling import ThrottlingMiddleware
-from tgbot.pop import db
+from tgbot.misc.variables import db
 
 logger = logging.getLogger(__name__)
 

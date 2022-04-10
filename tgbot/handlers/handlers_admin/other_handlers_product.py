@@ -1,7 +1,7 @@
 from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
 
-from tgbot.pop import db
+from tgbot.misc.variables import db
 from tgbot.keyboards.inline import admin_menu, chek_update_price_menu, back_products_menu, admin_products_menu, \
     delete_product, chek_update_amount_menu
 from tgbot.misc.states import ChangePrice, DeleteProduct, ChangeAmount
