@@ -14,15 +14,15 @@ class Database():
 
     async def create(self):
         self.pool = await asyncpg.create_pool(
-            # host=config.db.host,
-            # password=config.db.password,
-            # user=config.db.user,
-            # database=config.db.database
+            host=config.db.host,
+            password=config.db.password,
+            user=config.db.user,
+            database=config.db.database
 
-            host = 'localhost',
-            password = '15376SHAPKA',
-            user = 'postgres',
-            database = 'postgres'
+            # host = 'localhost',
+            # password = '15376SHAPKA',
+            # user = 'postgres',
+            # database = 'postgres'
         )
 
     async def execute(self, command, *args,
