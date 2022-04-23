@@ -1,16 +1,35 @@
+import asyncpg
 from aiogram import Dispatcher
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import CommandStart
 
+from tgbot.misc.help_function import create_invitation_code
 from tgbot.misc.variables import db
 from tgbot.keyboards.inline import admin_menu, admin_products_menu
 
 
 async def admin_start(message: types.Message, state: FSMContext):
-    await message.answer(f'Здравствуйте {message.from_user.first_name}, вы являетесь администратором этого бота')
-    await message.answer('Ваша панель управления', reply_markup=admin_menu)
-    await state.finish()
+    try:
+        user_invition_code = create_invitation_code()
+        while await db.check_invitation_code(user_invition_code):
+            user_invition_code = create_invitation_code()
+
+        await db.add_user(
+            first_name=message.from_user.full_name,
+            username=message.from_user.username,
+            telegram_user_id=message.from_user.id,
+            invitation_code=user_invition_code
+        )
+
+        await message.answer(f'Здравствуйте {message.from_user.first_name}, вы являетесь администратором этого бота')
+        await message.answer('Ваша панель управления', reply_markup=admin_menu)
+
+    except asyncpg.exceptions.UniqueViolationError:
+        await message.answer(f'Здравствуйте {message.from_user.first_name}, вы являетесь администратором этого бота')
+        await message.answer('Ваша панель управления', reply_markup=admin_menu)
+        if await state.get_state() is not None:
+            await state.finish()
 
 
 async def admin_count_users(call: types.CallbackQuery):

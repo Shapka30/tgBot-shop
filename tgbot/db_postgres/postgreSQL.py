@@ -14,10 +14,15 @@ class Database():
 
     async def create(self):
         self.pool = await asyncpg.create_pool(
-            host=config.db.host,
-            password=config.db.password,
-            user=config.db.user,
-            database=config.db.database
+            # host=config.db.host,
+            # password=config.db.password,
+            # user=config.db.user,
+            # database=config.db.database
+
+            host = 'localhost',
+            password = '15376SHAPKA',
+            user = 'postgres',
+            database = 'postgres'
         )
 
     async def execute(self, command, *args,
@@ -87,7 +92,7 @@ class Database():
 
     async def check_tg_user_id(self, telegram_user_id):
         sql = """SELECT True FROM users WHERE telegram_user_id = $1"""
-        return await self.execute(sql, telegram_user_id, fetchrow=True)
+        return await self.execute(sql, telegram_user_id, fetchval=True)
 
     async def check_invitation_code(self, invitation_code):
         sql = """SELECT True FROM users WHERE invitation_code = $1"""

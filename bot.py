@@ -11,6 +11,7 @@ from tgbot.filters.admin import AdminFilter
 from tgbot.handlers.handlers_admin.handlers_product import register_add_product
 from tgbot.handlers.handlers_admin.admin import register_admin
 from tgbot.handlers.handlers_admin.mailing import register_mailing
+from tgbot.handlers.handlers_admin.other import register_other_admin
 from tgbot.handlers.handlers_admin.other_handlers_product import register_other_handlers_product
 from tgbot.handlers.handlers_bd import register_all_handlers_db
 from tgbot.handlers.handlers_buy import register_handlers_buy
@@ -44,6 +45,7 @@ def register_all_handlers(dp):
     register_pay_bill(dp)
     register_inline_mode(dp)
     register_referals(dp)
+    register_other_admin(dp)
     register_all_handlers_db(dp)
 
 

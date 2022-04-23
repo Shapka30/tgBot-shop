@@ -30,11 +30,13 @@ user_menu = InlineKeyboardMarkup(inline_keyboard=[
 
 
 admin_menu = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Показать количество пользователей',
+    [InlineKeyboardButton(text='👥Показать количество пользователей👥',
                           callback_data='count users')],
     [InlineKeyboardButton(text='Товары',
                           callback_data='products')],
-    [InlineKeyboardButton(text='Создать рассылку', callback_data='mailing')]
+    [InlineKeyboardButton(text='✏️Создать рассылку✏️', callback_data='mailing')],
+    [InlineKeyboardButton(text='🌐Рефералы', callback_data='admin_referals')],
+    [InlineKeyboardButton(text='🛒Каталог', switch_inline_query_current_chat='')]
 ])
 
 admin_products_menu = InlineKeyboardMarkup(inline_keyboard=[

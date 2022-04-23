@@ -57,7 +57,7 @@ async def buy_product2(message: types.Message, state: FSMContext):
         data = await state.get_data()
         product_id = data['product_id']
         all_amount = await db.select_amount_id(product_id)
-        if amount > all_amount:
+        if amount > all_amount or amount < 0:
             await message.answer('❌В наличие нет столько товара❌\n'
                                  f'Сейчас есть в наличии: {all_amount}')
         else:
